@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="jquery,ui,easy,easyui,web">
+		<meta name="description" content="easyui help you build your web page easily!">
+		<title>Basic Drag and Drop - jQuery EasyUI Demo</title>
+		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
+		<style type="text/css">
+			.dd-demo{
+				width:60px;
+				height:60px;
+				border:2px solid #d3d3d3;
+				position:absolute;
+			}
+			.proxy{
+				border:1px dotted #333;
+				width:60px;
+				height:60px;
+				text-align:center;
+				background:#fafafa;
+			}
+			#dd1{
+				background:#E0ECFF;
+				left:20px;
+				top:160px;
+			}
+			#dd2{
+				background:#8DB2E3;
+				left:100px;
+				top:160px;
+			}
+			#dd3{
+				background:#FBEC88;
+				left:180px;
+				top:160px;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="/js/login1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#dd1').draggable();  
+				$('#dd2').draggable({   
+					proxy:'clone'  
+				});  
+				$('#dd3').draggable({   
+					proxy:function(source){   
+						var p = $('<div class="proxy">proxy</div>');   
+						p.appendTo('body');   
+						return p;   
+					}   
+				}); 
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Drag and Drop Demo</h2>
+		<div class="demo-info" style="margin-bottom:10px">
+			<div class="demo-tip icon-tip">&nbsp;</div>
+			<div>Drag the box to what position you want.</div>
+		</div>
+		
+		<div id="dd1" class="dd-demo"></div>  
+		<div id="dd2" class="dd-demo"></div>  
+		<div id="dd3" class="dd-demo"></div>  
+	</body>
+</html>
